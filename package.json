@@ -1,0 +1,19 @@
+{
+  "name": "breakout-game",
+  "version": "0.0.1",
+  "description": "Simple breakout game is built on TypeScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gios/breakout-game.git"
+  },
+  "author": "gios",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/gios/breakout-game/issues"
+  },
+  "homepage": "https://github.com/gios/breakout-game#readme"
+}
