@@ -32,18 +32,18 @@ export default class CanvasContext {
 
   public draw() {
     this.ctx.clearRect(0, 0, this.getCanvasWidth(), this.getCanvasHeight());
-    if (this.ball.getBallPositionX() + this.ball.getBallMovingX() < this.ball.getBallRadius() ||
-      this.ball.getBallPositionX() + this.ball.getBallMovingX() > this.getCanvasWidth() - this.ball.getBallRadius()) {
-      this.ball.setBallMovingX(-this.ball.getBallMovingX());
+    if (this.ball.getPositionX() + this.ball.getMovingX() < this.ball.getRadius() ||
+      this.ball.getPositionX() + this.ball.getMovingX() > this.getCanvasWidth() - this.ball.getRadius()) {
+      this.ball.setMovingX(-this.ball.getMovingX());
     }
 
-    if (this.ball.getBallPositionY() + this.ball.getBallMovingY() < this.ball.getBallRadius() ||
-      this.ball.getBallPositionY() + this.ball.getBallMovingY() > this.getCanvasHeight() - this.ball.getBallRadius()) {
-      this.ball.setBallMovingY(-this.ball.getBallMovingY());
+    if (this.ball.getPositionY() + this.ball.getMovingY() < this.ball.getRadius() ||
+      this.ball.getPositionY() + this.ball.getMovingY() > this.getCanvasHeight() - this.ball.getRadius()) {
+      this.ball.setMovingY(-this.ball.getMovingY());
     }
     this.ball.draw();
-    this.ball.setBallPositionX(this.ball.getBallPositionX() + this.ball.getBallMovingX());
-    this.ball.setBallPositionY(this.ball.getBallPositionY() + this.ball.getBallMovingY());
+    this.ball.setPositionX(this.ball.getPositionX() + this.ball.getMovingX());
+    this.ball.setPositionY(this.ball.getPositionY() + this.ball.getMovingY());
     requestAnimationFrame(this.draw.bind(this));
   }
 }

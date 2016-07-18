@@ -1,68 +1,68 @@
 import CanvasContext from "./CanvasContext";
 
 export default class Ball {
-  private ballRadius: number;
-  private ballPositionX: number;
-  private ballPositionY: number;
+  private radius: number;
+  private positionX: number;
+  private positionY: number;
 
-  private ballMovingX: number;
-  private ballMovingY: number;
+  private movingX: number;
+  private movingY: number;
   private canvasContext: CanvasContext;
 
-  constructor(canvasContext: CanvasContext, ballRadius: number, ballPositionX: number,
-              ballPositionY: number, ballMovingX: number, ballMovingY: number) {
+  constructor(canvasContext: CanvasContext, radius: number, positionX: number,
+              positionY: number, movingX: number, movingY: number) {
     this.canvasContext = canvasContext;
-    this.ballRadius = ballRadius;
-    this.ballPositionX = ballPositionX;
-    this.ballPositionY = ballPositionY;
-    this.ballMovingX = ballMovingX;
-    this.ballMovingY = ballMovingY;
+    this.radius = radius;
+    this.positionX = positionX;
+    this.positionY = positionY;
+    this.movingX = movingX;
+    this.movingY = movingY;
   }
 
-  public getBallRadius() {
-    return this.ballRadius;
+  public getRadius() {
+    return this.radius;
   }
 
-  public setBallRadius(ballRadius: number) {
-    this.ballRadius = ballRadius;
+  public setRadius(radius: number) {
+    this.radius = radius;
   }
 
-  public getBallPositionX() {
-    return this.ballPositionX;
+  public getPositionX() {
+    return this.positionX;
   }
 
-  public setBallPositionX(ballPositionX: number) {
-    this.ballPositionX = ballPositionX;
+  public setPositionX(positionX: number) {
+    this.positionX = positionX;
   }
 
-  public getBallPositionY() {
-    return this.ballPositionY;
+  public getPositionY() {
+    return this.positionY;
   }
 
-  public setBallPositionY(ballPositionY: number) {
-    this.ballPositionY = ballPositionY;
+  public setPositionY(positionY: number) {
+    this.positionY = positionY;
   }
 
-  public getBallMovingX() {
-    return this.ballMovingX;
+  public getMovingX() {
+    return this.movingX;
   }
 
-  public setBallMovingX(ballMovingX: number) {
-    this.ballMovingX = ballMovingX;
+  public setMovingX(movingX: number) {
+    this.movingX = movingX;
   }
 
-  public getBallMovingY() {
-    return this.ballMovingY;
+  public getMovingY() {
+    return this.movingY;
   }
 
-  public setBallMovingY(ballMovingY: number) {
-    this.ballMovingY = ballMovingY;
+  public setMovingY(movingY: number) {
+    this.movingY = movingY;
   }
 
   public draw() {
     let ctx = this.canvasContext.getCtx();
     ctx.beginPath();
-    ctx.arc(this.ballPositionX, this.ballPositionY, this.ballRadius, 0, Math.PI * 2);
+    ctx.arc(this.positionX, this.positionY, this.radius, 0, Math.PI * 2);
     ctx.fillStyle = "#0095DD";
     ctx.fill();
     ctx.closePath();
