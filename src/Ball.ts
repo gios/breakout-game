@@ -1,17 +1,15 @@
 import {CanvasContext} from "./CanvasContext";
 
-export class Ball {
+export class Ball extends CanvasContext {
   private radius: number;
   private positionX: number;
   private positionY: number;
 
   private movingX: number;
   private movingY: number;
-  private canvasContext: CanvasContext;
 
-  constructor(canvasContext: CanvasContext, radius: number, positionX: number,
-              positionY: number, movingX: number, movingY: number) {
-    this.canvasContext = canvasContext;
+  constructor(radius: number, positionX: number, positionY: number, movingX: number, movingY: number) {
+    super();
     this.radius = radius;
     this.positionX = positionX;
     this.positionY = positionY;
@@ -60,11 +58,28 @@ export class Ball {
   }
 
   public draw() {
-    let ctx = this.canvasContext.getCtx();
+    let ctx = CanvasContext.ctx;
     ctx.beginPath();
     ctx.arc(this.positionX, this.positionY, this.radius, 0, Math.PI * 2);
     ctx.fillStyle = "#0095DD";
     ctx.fill();
     ctx.closePath();
+  }
+
+  public render() {
+    CanvasContext.ctx.clearRect(0, 0, CanvasContext.getCanvasWidth(), CanvasContext.getCanvasHeight());
+    if (this.getPositionX() + this.getMovingX() < this.getRadius() ||
+      this.getPositionX() + this.getMovingX() > CanvasContext.getCanvasWidth() - this.getRadius()) {
+      this.setMovingX(-this.getMovingX());
+    }
+
+    if (this.getPositionY() + this.getMovingY() < this.getRadius() ||
+      this.getPositionY() + this.getMovingY() > CanvasContext.getCanvasHeight() - this.getRadius()) {
+      this.setMovingY(-this.getMovingY());
+    }
+    this.draw();
+    this.setPositionX(this.getPositionX() + this.getMovingX());
+    this.setPositionY(this.getPositionY() + this.getMovingY());
+    requestAnimationFrame(this.render.bind(this));
   }
 }
