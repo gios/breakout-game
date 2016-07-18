@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "concurrently \"npm run tsc:compile\" \"npm run live\"",
-    "develop": "concurrently \"npm run tsc:watch\" \"npm run live\"",
+    "start": "concurrently \"npm run tsc:compile\" \"npm run rollup\" \"npm run live\"",
+    "develop": "concurrently \"npm run tsc:watch\" \"npm run rollup\" \"npm run live\"",
     "tsc:watch": "tsc --watch --inlineSourceMap --outDir ./compiled",
+    "rollup": "rollup ./compiled/Index.js --output ./build/game.js",
     "tsc:compile": "tsc --outDir ./compiled",
     "live": "live-server"
   },
@@ -26,6 +27,7 @@
   },
   "devDependencies": {
     "live-server": "^1.0.0",
+    "rollup": "^0.34.1",
     "tslint": "^3.13.0"
   }
 }
