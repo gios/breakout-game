@@ -4,7 +4,10 @@
   "description": "Simple breakout game is built on TypeScript",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"npm run live\" \"npm run tsc:watch\"",
+    "tsc:watch": "tsc --watch --outDir ./dist",
+    "live": "live-server"
   },
   "repository": {
     "type": "git",
@@ -15,5 +18,12 @@
   "bugs": {
     "url": "https://github.com/gios/breakout-game/issues"
   },
-  "homepage": "https://github.com/gios/breakout-game#readme"
+  "homepage": "https://github.com/gios/breakout-game#readme",
+  "dependencies": {
+    "typescript": "^2.0.0"
+  },
+  "devDependencies": {
+    "live-server": "^1.0.0",
+    "tslint": "^3.13.0"
+  }
 }
