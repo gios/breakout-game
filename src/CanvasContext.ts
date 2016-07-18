@@ -31,19 +31,19 @@ export default class CanvasContext {
   }
 
   public draw() {
-    let ball = this.ball;
     this.ctx.clearRect(0, 0, this.getCanvasWidth(), this.getCanvasHeight());
-    if (ball.getBallPositionX() + ball.getBallMovingX() < ball.getBallRadius() ||
-        ball.getBallPositionX() + ball.getBallMovingX() > this.getCanvasWidth() - ball.getBallRadius()) {
-      ball.setBallMovingX(-ball.getBallMovingX());
+    if (this.ball.getBallPositionX() + this.ball.getBallMovingX() < this.ball.getBallRadius() ||
+      this.ball.getBallPositionX() + this.ball.getBallMovingX() > this.getCanvasWidth() - this.ball.getBallRadius()) {
+      this.ball.setBallMovingX(-this.ball.getBallMovingX());
     }
-    if (ball.getBallPositionY() + ball.getBallMovingY() < ball.getBallRadius() ||
-        ball.getBallPositionY() + ball.getBallMovingY() > this.getCanvasHeight() - ball.getBallRadius()) {
-      ball.setBallMovingY(-ball.getBallMovingY());
+
+    if (this.ball.getBallPositionY() + this.ball.getBallMovingY() < this.ball.getBallRadius() ||
+      this.ball.getBallPositionY() + this.ball.getBallMovingY() > this.getCanvasHeight() - this.ball.getBallRadius()) {
+      this.ball.setBallMovingY(-this.ball.getBallMovingY());
     }
     this.ball.draw();
-    ball.setBallPositionX(ball.getBallPositionX() + ball.getBallMovingX());
-    ball.setBallPositionY(ball.getBallPositionY() + ball.getBallMovingY());
+    this.ball.setBallPositionX(this.ball.getBallPositionX() + this.ball.getBallMovingX());
+    this.ball.setBallPositionY(this.ball.getBallPositionY() + this.ball.getBallMovingY());
     requestAnimationFrame(this.draw);
   }
 }
