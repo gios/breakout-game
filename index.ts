@@ -1,5 +1,5 @@
-import Ball from "./src/Ball";
-import CanvasContext from "./src/CanvasContext";
+import {Ball} from "./src/Ball";
+import {CanvasContext} from "./src/CanvasContext";
 
 let canvas = <HTMLCanvasElement> document.getElementById("game");
 let ctx: CanvasRenderingContext2D = canvas.getContext("2d");

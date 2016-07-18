@@ -1,6 +1,6 @@
-import Ball from "./Ball";
+import {Ball} from "./Ball";
 
-export default class CanvasContext {
+export abstract class CanvasContext {
   private canvas: HTMLCanvasElement;
   private ctx: CanvasRenderingContext2D;
   private ball: Ball;

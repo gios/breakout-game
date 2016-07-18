@@ -1,6 +1,6 @@
-import CanvasContext from "./CanvasContext";
+import {CanvasContext} from "./CanvasContext";
 
-export default class Ball {
+export class Ball {
   private radius: number;
   private positionX: number;
   private positionY: number;
