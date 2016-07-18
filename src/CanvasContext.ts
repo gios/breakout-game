@@ -44,6 +44,6 @@ export default class CanvasContext {
     this.ball.draw();
     this.ball.setBallPositionX(this.ball.getBallPositionX() + this.ball.getBallMovingX());
     this.ball.setBallPositionY(this.ball.getBallPositionY() + this.ball.getBallMovingY());
-    requestAnimationFrame(this.draw);
+    requestAnimationFrame(this.draw.bind(this));
   }
 }
