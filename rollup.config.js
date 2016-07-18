@@ -1,7 +1,7 @@
 import typescript from "rollup-plugin-typescript";
 
 export default {
-  entry: "./Index.ts",
+  entry: "./index.ts",
   dest: "build/game.js",
 
   plugins: [
