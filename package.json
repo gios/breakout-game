@@ -5,11 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "concurrently \"npm run tsc:compile\" \"npm run rollup\" \"npm run live\"",
-    "develop": "concurrently \"npm run tsc:watch\" \"npm run rollup\" \"npm run live\"",
-    "tsc:watch": "tsc --watch --inlineSourceMap --outDir ./compiled",
-    "rollup": "rollup ./compiled/Index.js --output ./build/game.js",
-    "tsc:compile": "tsc --outDir ./compiled",
+    "start": "concurrently \"npm run live\" \"npm run rollup:compile\"",
+    "develop": "concurrently \"npm run live\" \"npm run rollup:watch\"",
+    "rollup:compile": "rollup -c",
+    "rollup:watch": "rollup -c -w -m inline",
     "live": "live-server"
   },
   "repository": {
@@ -26,8 +25,11 @@
     "typescript": "^2.0.0"
   },
   "devDependencies": {
+    "concurrently": "^2.2.0",
     "live-server": "^1.0.0",
     "rollup": "^0.34.1",
+    "rollup-plugin-typescript": "^0.7.6",
+    "rollup-watch": "^2.5.0",
     "tslint": "^3.13.0"
   }
 }

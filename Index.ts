@@ -8,4 +8,3 @@ let canvasContext = new CanvasContext(canvas, ctx);
 let ball = new Ball(canvasContext, 10, canvasContext.getCanvasWidth() / 4, canvasContext.getCanvasHeight() - 30, 2, -2);
 canvasContext.setBall(ball);
 canvasContext.draw();
-
