@@ -42,6 +42,8 @@ export class Paddle extends CanvasContext {
     } else if (this.leftPressed) {
       this.startPoint -= 7;
     }
+    this.draw();
+    requestAnimationFrame(this.render.bind(this));
   }
 
   private attachListeners() {
