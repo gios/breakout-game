@@ -37,9 +37,9 @@ export class Paddle extends CanvasContext {
 
   public render() {
     this.attachListeners();
-    if (this.rightPressed) {
+    if (this.rightPressed && this.startPoint < CanvasContext.getCanvasWidth() - this.width) {
       this.startPoint += 7;
-    } else if (this.leftPressed) {
+    } else if (this.leftPressed && this.startPoint > 0) {
       this.startPoint -= 7;
     }
     this.draw();
