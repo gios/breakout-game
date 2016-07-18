@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "concurrently \"npm run live\" \"npm run tsc:watch\"",
-    "tsc:watch": "tsc --watch --outDir ./compiled",
+    "start": "concurrently \"npm run tsc:compile\" \"npm run live\"",
+    "develop": "concurrently \"npm run tsc:watch\" \"npm run live\"",
+    "tsc:watch": "tsc --watch --inlineSourceMap --outDir ./compiled",
+    "tsc:compile": "tsc --outDir ./compiled",
     "live": "live-server"
   },
   "repository": {
