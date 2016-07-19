@@ -73,9 +73,15 @@ export class Ball extends CanvasContext {
       this.setMovingX(-this.getMovingX());
     }
 
-    if (this.getPositionY() + this.getMovingY() < this.getRadius() ||
-      this.getPositionY() + this.getMovingY() > CanvasContext.getCanvasHeight() - this.getRadius()) {
+    if (this.getPositionY() + this.getMovingY() < this.getRadius()) {
       this.setMovingY(-this.getMovingY());
+    } else if (this.getPositionY() + this.getMovingY() > CanvasContext.getCanvasHeight() - this.getRadius()) {
+      if (this.getPositionX() > paddleX && this.getPositionX() < paddleX + paddleWidth) {
+        this.setMovingY(-this.getMovingY());
+      } else {
+        console.log("GAME OVER");
+        // document.location.reload();
+      }
     }
     this.draw();
     this.setPositionX(this.getPositionX() + this.getMovingX());
