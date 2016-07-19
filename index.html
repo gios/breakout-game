@@ -1,46 +1,61 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
-    <!--[if lt IE 9]>
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+  <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <title>Breakout-game by gios</title>
-  </head>
+  <title>Breakout-game by gios</title>
+</head>
 
-  <body>
-    <div id="container">
-      <div class="inner">
+<body>
+  <div id="container">
+    <div class="inner">
 
-        <header>
-          <h1>Breakout Game</h1>
-          <h2>Simple breakout game is built on TypeScript</h2>
-        </header>
+      <header>
+        <h1>Breakout Game</h1>
+        <h2>Simple breakout game is built on TypeScript</h2>
+      </header>
 
-        <section id="downloads" class="clearfix">
-          <a href="https://github.com/gios/breakout-game/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
-          <a href="https://github.com/gios/breakout-game/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
-          <a href="https://github.com/gios/breakout-game" id="view-on-github" class="button"><span>View on GitHub</span></a>
-        </section>
+      <section id="downloads" class="clearfix">
+        <a href="https://github.com/gios/breakout-game/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+        <a href="https://github.com/gios/breakout-game/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+        <a href="https://github.com/gios/breakout-game" id="view-on-github" class="button"><span>View on GitHub</span></a>
+      </section>
 
-        <hr>
+      <hr>
 
-        <section id="main_content">
+      <style>
+        * {
+          padding: 0;
+          margin: 0;
+        }
 
-        </section>
+        canvas {
+          background: #eee;
+          display: block;
+          margin: 0 auto;
+        }
+      </style>
 
-        <footer>
-          Breakout-game is maintained by <a href="https://github.com/gios">gios</a><br>
-          Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
-        </footer>
+      <section id="main_content">
+        <script src="build/game.js"></script>
+        <canvas id="game" width="800" height="600"></canvas>
+      </section>
+
+      <footer>
+        Breakout-game is maintained by <a href="https://github.com/gios">gios</a><br> Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+      </footer>
 
 
-      </div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>
