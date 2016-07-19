@@ -1,8 +1,10 @@
+import {Ball} from "./Ball";
 import {CanvasContext} from "./CanvasContext";
 
 interface IBrickCoords {
   x?: number;
   y?: number;
+  status?: number;
 }
 
 export class Brick extends CanvasContext {
@@ -62,6 +64,7 @@ export class Brick extends CanvasContext {
 
   public render() {
     this.draw();
+    this.collisionDetection();
     requestAnimationFrame(this.render.bind(this));
   }
 
@@ -70,17 +73,19 @@ export class Brick extends CanvasContext {
 
     for (let column = 0; column < this.getColumnCount(); column++) {
       for (let row = 0; row < this.getRowCount(); row++) {
-        let brickX = (column * (this.getWidth() + this.getPadding())) + this.getOffsetLeft();
-        let brickY = (row * (this.getHeight() + this.getPadding())) + this.getOffsetTop();
+        if (this.getBricks()[column][row].status === 1) {
+          let brickX = (column * (this.getWidth() + this.getPadding())) + this.getOffsetLeft();
+          let brickY = (row * (this.getHeight() + this.getPadding())) + this.getOffsetTop();
 
-        this.getBricks()[column][row].x = brickX;
-        this.getBricks()[column][row].y = brickY;
+          this.getBricks()[column][row].x = brickX;
+          this.getBricks()[column][row].y = brickY;
 
-        ctx.beginPath();
-        ctx.rect(brickX, brickY, this.getWidth(), this.getHeight());
-        ctx.fillStyle = "#0095DD";
-        ctx.fill();
-        ctx.closePath();
+          ctx.beginPath();
+          ctx.rect(brickX, brickY, this.getWidth(), this.getHeight());
+          ctx.fillStyle = "#0095DD";
+          ctx.fill();
+          ctx.closePath();
+        }
       }
     }
   }
@@ -89,7 +94,25 @@ export class Brick extends CanvasContext {
     for (let column = 0; column < this.getColumnCount(); column++) {
       this.getBricks()[column] = [];
       for (let row = 0; row < this.getRowCount(); row++) {
-        this.getBricks()[column][row] = { x: 0, y: 0 };
+        this.getBricks()[column][row] = { status: 1, x: 0, y: 0 };
+      }
+    }
+  }
+
+  private collisionDetection() {
+    let ball = <Ball> CanvasContext.getItem("Ball");
+
+    for (let column = 0; column < this.getColumnCount(); column++) {
+      for (let row = 0; row < this.getRowCount(); row++) {
+        let brick =  this.getBricks()[column][row];
+
+        if (brick.status === 1) {
+          if (ball.getPositionX() > brick.x && ball.getPositionX() < brick.x + this.getWidth() &&
+              ball.getPositionY() > brick.y && ball.getPositionY() < brick.y + this.getHeight()) {
+            ball.setMovingY(-ball.getMovingY());
+            brick.status = 0;
+          }
+        }
       }
     }
   }
