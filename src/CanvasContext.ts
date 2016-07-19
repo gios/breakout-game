@@ -1,6 +1,3 @@
-import {Ball} from "./Ball";
-import {Paddle} from "./Paddle";
-
 export abstract class CanvasContext {
   public static canvas: HTMLCanvasElement = <HTMLCanvasElement> document.getElementById("game");
   public static ctx: CanvasRenderingContext2D = CanvasContext.canvas.getContext("2d");
@@ -13,11 +10,11 @@ export abstract class CanvasContext {
     return this.canvas.height;
   }
 
-  public static setItem(item: Ball | Paddle) {
+  public static setItem<T>(item: T) {
     this.items.push(item);
   }
 
-  public static getItem(name: string): Ball | Paddle {
+  public static getItem(name: string): any {
     return this.items.filter(item => {
       return item.constructor.name === name;
     })[0];
@@ -29,7 +26,7 @@ export abstract class CanvasContext {
     });
   }
 
-  private static items: Array<Ball | Paddle> = [];
+  private static items: Array<any> = [];
   protected abstract draw(): void;
   protected abstract render(): void;
 }

@@ -38,15 +38,6 @@ export class Paddle extends CanvasContext {
     return this.width;
   }
 
-  public draw() {
-    let ctx = CanvasContext.ctx;
-    ctx.beginPath();
-    ctx.rect(this.startPoint, CanvasContext.getCanvasHeight() - this.height, this.width, this.height);
-    ctx.fillStyle = "#0095dd";
-    ctx.fill();
-    ctx.closePath();
-  }
-
   public render() {
     this.attachListeners();
     if (this.rightPressed && this.startPoint < CanvasContext.getCanvasWidth() - this.width) {
@@ -56,6 +47,15 @@ export class Paddle extends CanvasContext {
     }
     this.draw();
     requestAnimationFrame(this.render.bind(this));
+  }
+
+  protected draw() {
+    let ctx = CanvasContext.ctx;
+    ctx.beginPath();
+    ctx.rect(this.startPoint, CanvasContext.getCanvasHeight() - this.height, this.width, this.height);
+    ctx.fillStyle = "#0095dd";
+    ctx.fill();
+    ctx.closePath();
   }
 
   private attachListeners() {

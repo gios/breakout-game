@@ -58,15 +58,6 @@ export class Ball extends CanvasContext {
     this.movingY = movingY;
   }
 
-  public draw() {
-    let ctx = CanvasContext.ctx;
-    ctx.beginPath();
-    ctx.arc(this.positionX, this.positionY, this.radius, 0, Math.PI * 2);
-    ctx.fillStyle = "#0095dd";
-    ctx.fill();
-    ctx.closePath();
-  }
-
   public render() {
     CanvasContext.ctx.clearRect(0, 0, CanvasContext.getCanvasWidth(), CanvasContext.getCanvasHeight());
     if (this.getPositionX() + this.getMovingX() < this.getRadius() ||
@@ -90,5 +81,14 @@ export class Ball extends CanvasContext {
     this.setPositionX(this.getPositionX() + this.getMovingX());
     this.setPositionY(this.getPositionY() + this.getMovingY());
     requestAnimationFrame(this.render.bind(this));
+  }
+
+  protected draw() {
+    let ctx = CanvasContext.ctx;
+    ctx.beginPath();
+    ctx.arc(this.positionX, this.positionY, this.radius, 0, Math.PI * 2);
+    ctx.fillStyle = "#0095dd";
+    ctx.fill();
+    ctx.closePath();
   }
 }
