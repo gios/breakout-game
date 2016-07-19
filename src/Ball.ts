@@ -74,6 +74,7 @@ export class Ball extends CanvasContext {
         this.getPositionX() < paddle.getStartPoint() + paddle.getWidth()) {
         this.setMovingY(-this.getMovingY());
       } else {
+        alert("GAME OVER!");
         document.location.reload();
       }
     }

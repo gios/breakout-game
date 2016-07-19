@@ -1,5 +1,6 @@
 import {Ball} from "./Ball";
 import {CanvasContext} from "./CanvasContext";
+import {Score} from "./Score";
 
 interface IBrickCoords {
   x?: number;
@@ -101,16 +102,22 @@ export class Brick extends CanvasContext {
 
   private collisionDetection() {
     let ball = <Ball> CanvasContext.getItem("Ball");
+    let score = <Score> CanvasContext.getItem("Score");
 
     for (let column = 0; column < this.getColumnCount(); column++) {
       for (let row = 0; row < this.getRowCount(); row++) {
-        let brick =  this.getBricks()[column][row];
+        let brick = this.getBricks()[column][row];
 
         if (brick.status === 1) {
           if (ball.getPositionX() > brick.x && ball.getPositionX() < brick.x + this.getWidth() &&
-              ball.getPositionY() > brick.y && ball.getPositionY() < brick.y + this.getHeight()) {
+            ball.getPositionY() > brick.y && ball.getPositionY() < brick.y + this.getHeight()) {
             ball.setMovingY(-ball.getMovingY());
             brick.status = 0;
+            score.setScore(score.getScore() + 1);
+            if (score.getScore() === this.getRowCount() * this.getColumnCount()) {
+              alert("YOU WIN, CONGRATULATIONS!");
+              document.location.reload();
+            }
           }
         }
       }

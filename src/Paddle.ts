@@ -73,5 +73,13 @@ export class Paddle extends CanvasContext {
         this.setLeftPressed(false);
       }
     }, false);
+
+    document.addEventListener("mousemove", e => {
+      let relativeX = e.clientX - CanvasContext.canvas.offsetLeft;
+
+      if (relativeX > 0 && relativeX < CanvasContext.getCanvasWidth()) {
+        this.startPoint = relativeX - this.width / 2;
+      }
+    }, false);
   }
 }
