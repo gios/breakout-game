@@ -78,6 +78,7 @@ export class Ball extends CanvasContext {
       this.setMovingY(-this.getMovingY());
     } else if (this.getPositionY() + this.getMovingY() > CanvasContext.getCanvasHeight() - this.getRadius()) {
       let paddle = <Paddle> CanvasContext.getItem("Paddle");
+
       if (this.getPositionX() > paddle.getStartPoint() &&
         this.getPositionX() < paddle.getStartPoint() + paddle.getWidth()) {
         this.setMovingY(-this.getMovingY());
