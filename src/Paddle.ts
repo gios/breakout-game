@@ -53,7 +53,7 @@ export class Paddle extends CanvasContext {
     let ctx = CanvasContext.ctx;
     ctx.beginPath();
     ctx.rect(this.startPoint, CanvasContext.getCanvasHeight() - this.height, this.width, this.height);
-    ctx.fillStyle = "#0095dd";
+    ctx.fillStyle = "#2b7489";
     ctx.fill();
     ctx.closePath();
   }

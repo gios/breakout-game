@@ -83,7 +83,7 @@ export class Brick extends CanvasContext {
 
           ctx.beginPath();
           ctx.rect(brickX, brickY, this.getWidth(), this.getHeight());
-          ctx.fillStyle = "#0095DD";
+          ctx.fillStyle = "##2b7489";
           ctx.fill();
           ctx.closePath();
         }

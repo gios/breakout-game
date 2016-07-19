@@ -88,7 +88,7 @@ export class Ball extends CanvasContext {
     let ctx = CanvasContext.ctx;
     ctx.beginPath();
     ctx.arc(this.positionX, this.positionY, this.radius, 0, Math.PI * 2);
-    ctx.fillStyle = "#0095dd";
+    ctx.fillStyle = "#2b7489";
     ctx.fill();
     ctx.closePath();
   }
