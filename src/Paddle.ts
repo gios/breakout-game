@@ -26,6 +26,18 @@ export class Paddle extends CanvasContext {
     this.leftPressed = leftPressed;
   }
 
+  public getStartPoint() {
+    return this.startPoint;
+  }
+
+  public getHeight() {
+    return this.height;
+  }
+
+  public getWidth() {
+    return this.width;
+  }
+
   public draw() {
     let ctx = CanvasContext.ctx;
     ctx.beginPath();

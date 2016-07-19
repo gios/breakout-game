@@ -1,4 +1,5 @@
 import {CanvasContext} from "./CanvasContext";
+import {Paddle} from "./Paddle";
 
 export class Ball extends CanvasContext {
   private radius: number;
@@ -76,11 +77,12 @@ export class Ball extends CanvasContext {
     if (this.getPositionY() + this.getMovingY() < this.getRadius()) {
       this.setMovingY(-this.getMovingY());
     } else if (this.getPositionY() + this.getMovingY() > CanvasContext.getCanvasHeight() - this.getRadius()) {
-      if (this.getPositionX() > paddleX && this.getPositionX() < paddleX + paddleWidth) {
+      let paddle = <Paddle> CanvasContext.getItem("Paddle");
+      if (this.getPositionX() > paddle.getStartPoint() &&
+        this.getPositionX() < paddle.getStartPoint() + paddle.getWidth()) {
         this.setMovingY(-this.getMovingY());
       } else {
-        console.log("GAME OVER");
-        // document.location.reload();
+        document.location.reload();
       }
     }
     this.draw();
